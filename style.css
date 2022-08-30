@@ -103,6 +103,7 @@ li {
 }
 
 .source {
-  position: absolute;
+  position: relative;
   margin: 40px auto;
+
 }
