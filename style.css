@@ -1,0 +1,103 @@
+.container {
+  font-family: "Shippori Mincho", serif;
+  color: gray;
+}
+
+h1 {
+  font-family: "Dancing Script";
+}
+
+.today-degrees {
+  font-weight: 300;
+  font-size: 40px;
+  color: black;
+}
+
+li {
+  list-style: none;
+  font-weight: bold;
+}
+
+.today {
+  font-size: 60px;
+  font-weight: 300;
+  color: black;
+}
+
+.box {
+  background-color: #f4f9f9;
+  padding: 30px;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 5px;
+}
+
+.row {
+  position: relative;
+  left: 40px;
+}
+
+.col:nth-child(1) {
+  position: relative;
+}
+
+.col:nth-child(2) {
+  position: relative;
+  padding-left: 45px;
+  padding-top: 20px;
+}
+
+.todayEmoji {
+  position: absolute;
+  top: 45px;
+  left: 140px;
+  font-size: 135px;
+}
+
+.todayConditions {
+  font-style: italic;
+}
+
+.headlineEffect {
+  font-size: 50px;
+  font-family: "Dancing Script", cursive;
+}
+
+.night {
+  position: relative;
+  left: 10px;
+  color: blueviolet;
+}
+
+.day {
+  color: aqua;
+}
+
+.c-f {
+  font-size: 12px;
+  position: relative;
+  top: -30px;
+  font-weight: bold;
+}
+
+.button {
+  position: absolute;
+  top: 26px;
+  left: 155px;
+  font-size: 10px;
+  padding: 5px;
+  background-color: white;
+  border-color: black;
+  border-width: 1px;
+}
+
+.secondButton {
+  position: absolute;
+  top: 26px;
+  left: 187px;
+  font-size: 10px;
+  padding: 5px;
+  background-color: white;
+  border-color: black;
+  border-width: 1px;
+}
