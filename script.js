@@ -1,5 +1,3 @@
-let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
-
 let now = new Date();
 
 let days = [
@@ -9,7 +7,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 
 let day = days[now.getDay()];
@@ -25,26 +23,7 @@ if (minutes < 10) {
 let setTime = document.querySelector("#currentTime");
 setTime.innerHTML = `${day} ${time}:${minutes}`;
 
-//setting chosen values
-
-let cities = document.querySelector("#city-form");
-cities.addEventListener("click", currentCity);
-
-function currentCity(c) {
-  c.preventDefault();
-  let chosenCity = document.querySelector("#chosenCity");
-  newLocation(chosenCity.value);
-}
-
-function newLocation(selection) {
-  let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${selection}&units=metric&appid=${apiKey}`;
-  axios.get(weatherUrl).then(localValues);
-  axios.get(weatherUrl).then(emojis);
-}
-
-
-// Temperature and City 
+// Temperature and City
 
 function localValues(c) {
   let temperature = Math.round(c.data.main.temp);
@@ -69,16 +48,29 @@ function localValues(c) {
   localWind.innerHTML = wind;
 }
 
+//Setting Current button
 
-//Current Button
 let showLocal = document.querySelector("#local");
-showLocal.addEventListener("click", localButton);
+showLocal.addEventListener("click", newLocation);
 
 function localButton(click) {
   click.preventDefault();
   navigator.geolocation.getCurrentPosition(findTemp);
 }
 
+//Setting chosen values - OK button
+
+let cities = document.querySelector("#okButton");
+cities.addEventListener("click", newLocation);
+
+function newLocation(click) {
+  click.preventDefault();
+  let chosenCity = document.querySelector("#chosenCity").value;
+  let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&units=metric&appid=${apiKey}`;
+  axios.get(weatherUrl).then(localValues);
+  axios.get(weatherUrl).then(emojis);
+}
 
 function findTemp(position) {
   let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
@@ -92,7 +84,7 @@ function findTemp(position) {
 
 navigator.geolocation.getCurrentPosition(findTemp);
 
-//Celsius button
+//Celsius button - functioning only for current location atm
 
 let toC = document.querySelector("#c");
 toC.addEventListener("click", changeToC);
@@ -121,19 +113,16 @@ function emojis(c) {
   let sky = c.data.weather[0].main;
   let skyNow = document.querySelector("#todayEmoji");
   if (sky === "Clear") {
-    skyNow.innerHTML = "☀️"
+    skyNow.innerHTML = "☀️";
   } else if (sky === "Clouds") {
-    skyNow.innerHTML = "🌤"
+    skyNow.innerHTML = "🌤";
   } else if (sky === "Drizzle") {
-     skyNow.innerHTML = "🌨"
+    skyNow.innerHTML = "🌨";
   } else if (sky === "Rain") {
-    skyNow.innerHTML =  "🌧"
+    skyNow.innerHTML = "🌧";
   } else if (sky === "Thunderstorm") {
-    skyNow.innerHTML =  "⚡️"
+    skyNow.innerHTML = "⚡️";
   } else if (sky === "Snow") {
-    skyNow.innerHTML =  "❄️"
-  };
-};
-
-
-
+    skyNow.innerHTML = "❄️";
+  }
+}
