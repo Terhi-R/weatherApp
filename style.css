@@ -103,7 +103,13 @@ li {
 }
 
 .source {
-  position: relative;
-  margin: 40px auto;
+    position: relative;
+    font-size: 11px;
+    bottom: 65px;
+    right: 25px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 40px auto;
+    border-radius: 5px;
+  }
 
-}
