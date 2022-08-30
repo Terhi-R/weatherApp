@@ -1,3 +1,5 @@
+//Setting Date & time
+
 let now = new Date();
 
 let days = [
@@ -23,7 +25,7 @@ if (minutes < 10) {
 let setTime = document.querySelector("#currentTime");
 setTime.innerHTML = `${day} ${time}:${minutes}`;
 
-// Temperature and City
+// Setting values
 
 function localValues(c) {
   let temperature = Math.round(c.data.main.temp);
