@@ -48,7 +48,7 @@ function localValues(c) {
   localWind.innerHTML = wind;
 }
 
-//Setting Current button
+//Setting Current button & default when entering the page
 
 let showLocal = document.querySelector("#local");
 showLocal.addEventListener("click", newLocation);
@@ -57,6 +57,18 @@ function localButton(click) {
   click.preventDefault();
   navigator.geolocation.getCurrentPosition(findTemp);
 }
+
+function findTemp(position) {
+  let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let units = "metric";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+  axios.get(weatherUrl).then(localValues);
+  axios.get(weatherUrl).then(emojis);
+}
+
+navigator.geolocation.getCurrentPosition(findTemp);
 
 //Setting chosen values - OK button
 
@@ -71,18 +83,6 @@ function newLocation(click) {
   axios.get(weatherUrl).then(localValues);
   axios.get(weatherUrl).then(emojis);
 }
-
-function findTemp(position) {
-  let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let units = "metric";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-  axios.get(weatherUrl).then(localValues);
-  axios.get(weatherUrl).then(emojis);
-}
-
-navigator.geolocation.getCurrentPosition(findTemp);
 
 //Celsius button - functioning only for current location atm
 
