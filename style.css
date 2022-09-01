@@ -41,12 +41,6 @@ li {
   position: relative;
 }
 
-.col:nth-child(2) {
-  position: relative;
-  padding-left: 45px;
-  padding-top: 20px;
-}
-
 .todayEmoji {
   position: absolute;
   top: 45px;
@@ -61,16 +55,6 @@ li {
 .headlineEffect {
   font-size: 50px;
   font-family: "Dancing Script", cursive;
-}
-
-.night {
-  position: relative;
-  left: 10px;
-  color: blueviolet;
-}
-
-.day {
-  color: aqua;
 }
 
 .c-f {
