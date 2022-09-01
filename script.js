@@ -89,24 +89,32 @@ function newLocation(click) {
   axios.get(weatherUrl).then(emojis);
 }
 
-//Celsius button - functioning only for current location atm
+//convert to celsius -button
 
 let toC = document.querySelector("#c");
 toC.addEventListener("click", changeToC);
 
 function changeToC(c) {
   c.preventDefault();
+  toC.style.color = "grey";
+  toF.style.color = "blue";
+  toC.style.textDecoration = "none";
+  toF.style.textDecoration = "underline";
   let temperature = document.querySelector("#temperatureToday");
   temperature.innerHTML = changeTemperature;
 }
 
-//convert to fahrenheit
+//convert to fahrenheit -button
 
 let toF = document.querySelector("#f");
 toF.addEventListener("click", changeToF);
 
 function changeToF(f) {
   f.preventDefault();
+  toF.style.color = "grey";
+  toC.style.color = "blue";
+  toF.style.textDecoration = "none";
+  toC.style.textDecoration = "underline";
   let temperature = document.querySelector("#temperatureToday");
   let convertingFToC = temperature.innerHTML;
   convertingFToC = Number(convertingFToC);
