@@ -55,7 +55,7 @@ function localValues(c) {
 //Setting Current button & default when entering the page
 
 let showLocal = document.querySelector("#local");
-showLocal.addEventListener("click", newLocation);
+showLocal.addEventListener("click", localButton);
 
 function localButton(click) {
   click.preventDefault();
