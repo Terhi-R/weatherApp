@@ -48,6 +48,8 @@ function localValues(c) {
   let wind = Math.round(c.data.wind.speed);
   let localWind = document.querySelector("#wind");
   localWind.innerHTML = wind;
+
+  changeTemperature = Math.round(c.data.main.temp);
 }
 
 //Setting Current button & default when entering the page
@@ -64,13 +66,14 @@ function findTemp(position) {
   let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let units = "metric";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(weatherUrl).then(localValues);
   axios.get(weatherUrl).then(emojis);
 }
 
 navigator.geolocation.getCurrentPosition(findTemp);
+
+let changeTemperature = null;
 
 //Setting chosen values - OK button
 
@@ -93,7 +96,8 @@ toC.addEventListener("click", changeToC);
 
 function changeToC(c) {
   c.preventDefault();
-  navigator.geolocation.getCurrentPosition(findTemp);
+  let temperature = document.querySelector("#temperatureToday");
+  temperature.innerHTML = changeTemperature;
 }
 
 //convert to fahrenheit
@@ -103,10 +107,10 @@ toF.addEventListener("click", changeToF);
 
 function changeToF(f) {
   f.preventDefault();
-  let fTemperature = document.querySelector("#temperatureToday");
-  let convertingFToC = fTemperature.innerHTML;
+  let temperature = document.querySelector("#temperatureToday");
+  let convertingFToC = temperature.innerHTML;
   convertingFToC = Number(convertingFToC);
-  fTemperature.innerHTML = Math.round(convertingFToC * 1.8 + 32);
+  temperature.innerHTML = Math.round(changeTemperature * 1.8 + 32);
 }
 
 // Emojis
