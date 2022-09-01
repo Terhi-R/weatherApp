@@ -41,15 +41,22 @@ li {
   position: relative;
 }
 
+.col:nth-child(2) {
+  position: relative;
+  padding-left: 20px;
+  padding-top: 221px;
+}
+
 .todayEmoji {
   position: absolute;
   top: 45px;
-  left: 140px;
+  left: 160px;
   font-size: 135px;
 }
 
 .todayConditions {
   font-style: italic;
+  font-size: 15px;
 }
 
 .headlineEffect {
@@ -61,13 +68,13 @@ li {
   font-size: 12px;
   position: relative;
   top: -30px;
-  font-weight: bold;
+
 }
 
 .button {
   position: absolute;
   top: 26px;
-  left: 155px;
+  left: 197px;
   font-size: 10px;
   padding: 5px;
   background-color: white;
@@ -78,7 +85,7 @@ li {
 .secondButton {
   position: absolute;
   top: 26px;
-  left: 187px;
+  left: 228px;
   font-size: 10px;
   padding: 5px;
   background-color: white;
@@ -87,13 +94,12 @@ li {
 }
 
 .source {
-    position: relative;
-    font-size: 11px;
-    bottom: 65px;
-    right: 25px;
-    padding: 30px;
-    max-width: 500px;
-    margin: 40px auto;
-    border-radius: 5px;
-  }
-
+  position: relative;
+  font-size: 11px;
+  bottom: 65px;
+  right: 25px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 40px auto;
+  border-radius: 5px;
+}
