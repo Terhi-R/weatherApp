@@ -99,7 +99,6 @@ function changeToC(c) {
   toC.style.color = "grey";
   toF.style.color = "blue";
   toC.style.textDecoration = "none";
-  toF.style.textDecoration = "underline";
   let temperature = document.querySelector("#temperatureToday");
   temperature.innerHTML = changeTemperature;
 }
@@ -114,7 +113,6 @@ function changeToF(f) {
   toF.style.color = "grey";
   toC.style.color = "blue";
   toF.style.textDecoration = "none";
-  toC.style.textDecoration = "underline";
   let temperature = document.querySelector("#temperatureToday");
   let convertingFToC = temperature.innerHTML;
   convertingFToC = Number(convertingFToC);
