@@ -68,7 +68,14 @@ li {
   font-size: 12px;
   position: relative;
   top: -30px;
+}
 
+.c {
+  text-decoration: none;
+}
+
+.f {
+  text-decoration: none;
 }
 
 .button {
