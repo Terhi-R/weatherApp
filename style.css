@@ -115,12 +115,15 @@ li {
 }
 
 .dailyForecast {
-  margin-bottom: 15px;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .forecastDay {
+  font-size: 15px;
   color: black;
-  font-size: 12px;
 }
-  
+
+.imgPosition {
+  position: relative;
+  left: 25px;
+}
