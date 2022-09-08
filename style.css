@@ -55,6 +55,9 @@ li {
 }
 
 .todayConditions {
+  position: relative;
+  top: 15px;
+  right: 35px;
   font-style: italic;
   font-size: 15px;
 }
