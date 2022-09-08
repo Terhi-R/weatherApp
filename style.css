@@ -43,8 +43,8 @@ li {
 
 .col:nth-child(2) {
   position: relative;
-  padding-left: 20px;
-  padding-top: 221px;
+  padding-left: 100px;
+  padding-top: 20px;
 }
 
 .todayEmoji {

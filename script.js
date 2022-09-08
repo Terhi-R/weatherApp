@@ -29,19 +29,20 @@ setTime.innerHTML = `${day} ${time}:${minutes}`;
 
 function showForecast() {
   let getForecast = document.querySelector("#weeklyForecast");
-  let forecastHTML = ``;
-  getForecast.innerHTML = forecastHTML;
+  let forecastHTML = "";
   let forecastDays = ["1st day", "2nd day", "3rd day", "4th day", "5th day"];
-  forecastHTML = `<div class="row">`;
   forecastDays.forEach(function (day) {
-    forecastHTML += `addForecast = addForecast +
-        <div class="col-2">
-        <div class="forecastDay">${forecastDays(day)}</div>
-        </div>
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="forecastDay">${day}</div>
+
       `;
   });
-  forecastHTML += `</div>`;
+  getForecast.innerHTML = forecastHTML;
 }
+
+showForecast();
 
 // Setting values
 
