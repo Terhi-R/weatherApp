@@ -32,25 +32,25 @@ setTime.innerHTML = `${day} ${time}:${minutes}`;
 function findWeekdays(timestamp) {
   let weekdays = new Date(timestamp * 1000);
   let weekday = weekdays.getDay();
-
   return days[weekday];
 }
 
 function showForecast(response) {
   let forecastData = response.data.daily;
-  console.log(forecastData[2]);
   let getForecast = document.querySelector("#weeklyForecast");
   let forecastHTML = "";
-  forecastData.forEach(function (currentForecast) {
+  forecastData.forEach(function (currentForecast, index) {
     degreeMax = Math.round(currentForecast.temp.max) + "°";
     degreeMin = Math.round(currentForecast.temp.min) + "°";
-    forecastHTML += `
-      <div class="forecastDay">${findWeekdays(currentForecast.dt)}</div>
-      <div class="dailyEmoji">${degreeMax}<img src="http://openweathermap.org/img/wn/${
-      currentForecast.weather[0].icon
-    }@2x.png" alt="" width="45"/>${degreeMin}</div>
-
-      `;
+    if (index > 0 && index < 6) {
+      forecastHTML += `
+        <div class="forecastDay">${findWeekdays(currentForecast.dt)}</div>
+        <div class="dailyEmoji">${degreeMax}<img src="http://openweathermap.org/img/wn/${
+        currentForecast.weather[0].icon
+      }@2x.png" alt="" width="45"/>${degreeMin}</div>
+  
+        `;
+    }
   });
   getForecast.innerHTML = forecastHTML;
 }
