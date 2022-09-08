@@ -31,12 +31,14 @@ function showForecast() {
   let getForecast = document.querySelector("#weeklyForecast");
   let forecastHTML = "";
   let forecastDays = ["1st day", "2nd day", "3rd day", "4th day", "5th day"];
-  forecastDays.forEach(function (day) {
+  forecastDays.forEach(function (day, image) {
+    image = "🌚";
+    degreeMax = "X°";
+    degreeMin = "X°";
     forecastHTML =
       forecastHTML +
-      `
-        <div class="forecastDay">${day}</div>
-
+      `<div class="forecastDay">${day}</div>
+      <div class="dailyEmoji">${degreeMax} ${image} ${degreeMin}</div>
       `;
   });
   getForecast.innerHTML = forecastHTML;

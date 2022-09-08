@@ -113,3 +113,12 @@ li {
   margin: 40px auto;
   border-radius: 5px;
 }
+
+.forecastDay {
+  color: black;
+  margin-bottom: 5px;
+}
+
+.dailyEmoji {
+  margin-bottom: 15px;
+}
