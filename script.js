@@ -117,6 +117,14 @@ let changeTemperature = null;
 let cities = document.querySelector("#okButton");
 cities.addEventListener("click", newLocation);
 
+function newCityForecast(position) {
+  let lat = position.data.coord.lat;
+  let lon = position.data.coord.lon;
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiURL).then(showForecast);
+}
+
 function newLocation(click) {
   click.preventDefault();
   let chosenCity = document.querySelector("#chosenCity").value;
@@ -124,7 +132,7 @@ function newLocation(click) {
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&units=metric&appid=${apiKey}`;
   axios.get(weatherUrl).then(localValues);
   axios.get(weatherUrl).then(emojis);
-  findForecast(position.coords);
+  axios.get(weatherUrl).then(newCityForecast);
 }
 
 // Emojis
