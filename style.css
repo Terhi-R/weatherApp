@@ -67,13 +67,6 @@ li {
   font-family: "Dancing Script", cursive;
 }
 
-.degree {
-  font-size: 17px;
-  position: relative;
-  top: -21px;
-  left: -10px;
-}
-
 .button {
   position: absolute;
   top: 26px;
