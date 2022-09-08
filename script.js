@@ -45,7 +45,7 @@ function showForecast(response) {
     if (index > 0 && index < 6) {
       forecastHTML += `
         <div class="forecastDay">${findWeekdays(currentForecast.dt)}</div>
-        <div class="dailyEmoji">${degreeMax}<img src="http://openweathermap.org/img/wn/${
+        <div class="dailyForecast">${degreeMax}<img src="http://openweathermap.org/img/wn/${
         currentForecast.weather[0].icon
       }@2x.png" alt="" width="45"/>${degreeMin}</div>
   

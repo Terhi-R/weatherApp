@@ -114,16 +114,16 @@ li {
   border-radius: 5px;
 }
 
-.forecastDay {
-  color: black;
-  margin-bottom: 5px;
+#weeklyForecast {
+  margin-top: 20px;
 }
 
-.dailyEmoji {
+.dailyForecast {
   margin-bottom: 15px;
-  font-size: 12px;
-  }
+  font-size: 10px;
+}
+
+.forecastDay {
+  color: black;
+}
   
-  #weeklyForecast {
-    margin-top: 20px;
-  }
