@@ -124,6 +124,7 @@ function newLocation(click) {
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&units=metric&appid=${apiKey}`;
   axios.get(weatherUrl).then(localValues);
   axios.get(weatherUrl).then(emojis);
+  findForecast(position.coords);
 }
 
 // Emojis
