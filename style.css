@@ -128,6 +128,7 @@ li {
 }
 
 .forecastDay {
+  position: relative;
   font-size: 15px;
   color: black;
 }
@@ -139,9 +140,11 @@ li {
   background-color: white;
   color: black;
   transition: opacity 1s ease-in-out;
+  position: relative;
+  z-index: 1;
 }
 
 .forecastDay:hover:before {
-  visibility: visible;
   opacity: 1;
+  visibility: visible;
 }

@@ -76,9 +76,9 @@ function showForecast(response) {
     degreeMin = Math.round(currentForecast.temp.min) + "°";
     if (index > 0 && index < 6) {
       forecastHTML += `
-        <div class="forecastDay" data-hover="Sunrise at ${sunrise} / Sunset at ${sunset}">${findWeekdays(
+        <div><span class="forecastDay" data-hover="Sunrise at ${sunrise} / Sunset at ${sunset}">${findWeekdays(
         currentForecast.dt
-      )}</div>
+      )}</span></div>
         <div class="dailyForecast">
 ${degreeMax} / ${degreeMin} <span class="forecastEmoji"> ${forecastEmojis}
         </span></div>
