@@ -133,7 +133,7 @@ li {
   color: black;
 }
 
-/*
+
 .forecastDay:before {
   content: attr(data-hover);
   visibility: hidden;
@@ -151,4 +151,3 @@ li {
   opacity: 1;
   visibility: visible;
 }
-*/
