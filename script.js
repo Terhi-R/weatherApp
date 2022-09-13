@@ -48,8 +48,8 @@ function showForecast(response) {
   let getForecast = document.querySelector("#weeklyForecast");
   let forecastHTML = "";
   forecastData.forEach(function (currentForecast, index) {
-    let sunrise = newDate(currentForecast.sunrise * 1000);
-    let sunset = newDate(currentForecast.sunset * 1000);
+    let sunrise = new Date(currentForecast.sunrise * 1000);
+    let sunset = new Date(currentForecast.sunset * 1000);
     sunrise = runTime(sunrise);
     sunset = runTime(sunset);
     let forecastEmojis = currentForecast.weather[0].icon;
