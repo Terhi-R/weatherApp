@@ -132,7 +132,7 @@ li {
   color: black;
 }
 
-
+/*
 .forecastDay:before {
   content: attr(data-hover);
   visibility: hidden;
@@ -140,6 +140,7 @@ li {
   background-color: white;
   color: black;
   transition: opacity 1s ease-in-out;
+  position: absolute;
   z-index: 1;
   bottom: 110px;
   padding: 5px;
@@ -150,4 +151,18 @@ li {
 .forecastDay:hover:before {
   opacity: 1;
   visibility: visible;
+}
+*/
+
+.forecastDay:hover {
+    content: attr(data-hover);
+      background-color: white;
+      color: black;
+      transition: ease-in-out;
+      position: relative;
+      z-index: 1;
+      bottom: 110px;
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
