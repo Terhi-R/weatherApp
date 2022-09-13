@@ -48,10 +48,10 @@ function showForecast(response) {
   let getForecast = document.querySelector("#weeklyForecast");
   let forecastHTML = "";
   forecastData.forEach(function (currentForecast, index) {
-    let sunrise = newDate(currentForecast.sunrise * 1000);
+    /*let sunrise = newDate(currentForecast.sunrise * 1000);
     let sunset = newDate(currentForecast.sunset * 1000);
     sunrise = runTime(sunrise);
-    sunset = runTime(sunset);
+    sunset = runTime(sunset);*/
     let forecastEmojis = currentForecast.weather[0].icon;
     if (forecastEmojis === "01d") {
       forecastEmojis = "☀️";
@@ -72,6 +72,7 @@ function showForecast(response) {
     } else if (forecastEmojis === "50d") {
       forecastEmojis = `<img src="http://openweathermap.org/img/wn/${currentForecast.weather[0].icon}@2x.png" alt="" width="45"/>`;
     }
+    /*title="Sunrise at ${sunrise} / Sunset at ${sunset}"*/
     degreeMax = Math.round(currentForecast.temp.max) + "°";
     degreeMin = Math.round(currentForecast.temp.min) + "°";
     if (index > 0 && index < 6) {
