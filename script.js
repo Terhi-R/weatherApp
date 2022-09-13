@@ -32,6 +32,7 @@ setTime.innerHTML = `${day} ${time}:${minutes}`;
 function findWeekdays(timestamp) {
   let weekdays = new Date(timestamp * 1000);
   let weekday = weekdays.getDay();
+
   return days[weekday];
 }
 
@@ -40,15 +41,34 @@ function showForecast(response) {
   let getForecast = document.querySelector("#weeklyForecast");
   let forecastHTML = "";
   forecastData.forEach(function (currentForecast, index) {
+    let forecastEmojis = currentForecast.weather[0].icon;
+    if (forecastEmojis === "01d") {
+      forecastEmojis = "☀️";
+    } else if (forecastEmojis === "02d") {
+      forecastEmojis = "🌤";
+    } else if (forecastEmojis === "03d") {
+      forecastEmojis = "☁️";
+    } else if (forecastEmojis === "04d") {
+      forecastEmojis = "🌥";
+    } else if (forecastEmojis === "09d") {
+      forecastEmojis = "🌧";
+    } else if (forecastEmojis === "10d") {
+      forecastEmojis = "🌦";
+    } else if (forecastEmojis === "11d") {
+      forecastEmojis = "🌩";
+    } else if (forecastEmojis === "13d") {
+      forecastEmojis = "❄️";
+    } else if (forecastEmojis === "50d") {
+      forecastEmojis = `<img src="http://openweathermap.org/img/wn/${currentForecast.weather[0].icon}@2x.png" alt="" width="45"/>`;
+    }
     degreeMax = Math.round(currentForecast.temp.max) + "°";
     degreeMin = Math.round(currentForecast.temp.min) + "°";
     if (index > 0 && index < 6) {
       forecastHTML += `
         <div class="forecastDay">${findWeekdays(currentForecast.dt)}</div>
-        <div class="dailyForecast">${degreeMax}<img src="http://openweathermap.org/img/wn/${
-        currentForecast.weather[0].icon
-      }@2x.png" alt="" width="45"/>${degreeMin}</div>
-  
+        <div class="dailyForecast">
+${degreeMax} / ${degreeMin} <span class="forecastEmoji"> ${forecastEmojis}
+        </span></div>
         `;
     }
   });
@@ -137,7 +157,7 @@ function newLocation(click) {
 
 // Emojis
 
-function emojis(c) {
+https: function emojis(c) {
   let sky = c.data.weather[0].main;
   let icon = c.data.weather[0].icon;
   let skyNow = document.querySelector("#todayEmoji");
@@ -156,14 +176,28 @@ function emojis(c) {
   }
 }
 
-//Weekly forecast
+//C and F
 
-function forecastValues(c) {
-  console.log(c);
+let toC = document.querySelector("#c");
+toC.addEventListener("click", changeToC);
+
+let toF = document.querySelector("#f");
+toF.addEventListener("click", changeToF);
+
+function changeToC(click) {
+  click.preventDefault();
+  toC.style.color = "grey";
+  toF.style.color = "blue";
+  let temperature = document.querySelector("#temperatureToday");
+  temperature.innerHTML = changeTemperature;
 }
 
-function forecast() {
-  let apiKey = "e3dfb7191ef6138f7a6e690ea1f91607";
-  let forecastURL = `https://bulk.openweathermap.org/snapshot/hourly_16.json.gz?appid=${apiKey}`;
-  axios.get(forecastURL).then(forecastValues);
+function changeToF(click) {
+  click.preventDefault();
+  toF.style.color = "grey";
+  toC.style.color = "blue";
+  let temperature = document.querySelector("#temperatureToday");
+  let converting = temperature.innerHTML;
+  converting = Number(converting);
+  temperature.innerHTML = Math.round(changeTemperature * 1.8 + 32);
 }

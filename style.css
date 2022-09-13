@@ -38,20 +38,22 @@ li {
   left: 40px;
 }
 
+
 .col:nth-child(1) {
   position: relative;
 }
 
 .col:nth-child(2) {
   position: relative;
-  padding-left: 100px;
+  padding-left: 95px;
   padding-top: 20px;
 }
+
 
 .todayEmoji {
   position: absolute;
   top: 45px;
-  left: 160px;
+  left: 155px;
   font-size: 135px;
 }
 
@@ -68,11 +70,18 @@ li {
   font-family: "Dancing Script", cursive;
 }
 
-.degree {
-  font-size: 17px;
+.c-f {
+  font-size: 12px;
   position: relative;
-  top: -21px;
-  left: -10px;
+  top: -30px;
+}
+
+.c {
+  text-decoration: none;
+}
+
+.f {
+  text-decoration: none;
 }
 
 .button {
@@ -110,6 +119,7 @@ li {
 
 .dailyForecast {
   font-size: 13px;
+  margin-bottom: 12px;
 }
 
 .forecastDay {
@@ -120,4 +130,9 @@ li {
 .imgPosition {
   position: relative;
   left: 25px;
+}
+
+
+.forecastEmoji {
+  font-size: 25px;
 }
