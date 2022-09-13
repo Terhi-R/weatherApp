@@ -144,9 +144,7 @@ li {
   z-index: 1;
 }
 
-.forecastDay:hover {
-  content: attr(data-hover);
-
+.forecastDay:hover:before {
   opacity: 1;
   visibility: visible;
 }
