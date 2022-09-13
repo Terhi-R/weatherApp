@@ -175,29 +175,3 @@ https: function emojis(c) {
     skyNow.innerHTML = "❄️";
   }
 }
-
-//C and F
-
-let toC = document.querySelector("#c");
-toC.addEventListener("click", changeToC);
-
-let toF = document.querySelector("#f");
-toF.addEventListener("click", changeToF);
-
-function changeToC(click) {
-  click.preventDefault();
-  toC.style.color = "grey";
-  toF.style.color = "blue";
-  let temperature = document.querySelector("#temperatureToday");
-  temperature.innerHTML = changeTemperature;
-}
-
-function changeToF(click) {
-  click.preventDefault();
-  toF.style.color = "grey";
-  toC.style.color = "blue";
-  let temperature = document.querySelector("#temperatureToday");
-  let converting = temperature.innerHTML;
-  converting = Number(converting);
-  temperature.innerHTML = Math.round(changeTemperature * 1.8 + 32);
-}

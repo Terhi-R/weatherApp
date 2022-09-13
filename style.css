@@ -70,18 +70,11 @@ li {
   font-family: "Dancing Script", cursive;
 }
 
-.c-f {
-  font-size: 12px;
+.degree {
   position: relative;
-  top: -30px;
-}
-
-.c {
-  text-decoration: none;
-}
-
-.f {
-  text-decoration: none;
+  font-size: 17px;
+  top: -21px;
+  left: -10px;
 }
 
 .button {
