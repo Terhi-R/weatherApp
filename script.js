@@ -15,17 +15,24 @@ let days = [
 
 let day = days[now.getDay()];
 
-let time = now.getHours();
-if (time < 10) {
-  time = `0${time}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+function runTime(sunTime) {
+  sunHour = sunTime.getHours();
+  if (sunHour < 10) {
+    sunHour = `0${sunHour}`;
+  }
+
+  sunMinute = sunTime.getMinutes();
+  if (sunMinute < 10) {
+    sunMinute = `0${sunMinute}`;
+  }
+
+  return `${sunHour}:${sunMinute}`;
 }
 
+let takeTime = runTime(now);
+
 let setTime = document.querySelector("#currentTime");
-setTime.innerHTML = `${day} ${time}:${minutes}`;
+setTime.innerHTML = `${day} ${takeTime}`;
 
 //Setting forecast
 
@@ -41,6 +48,10 @@ function showForecast(response) {
   let getForecast = document.querySelector("#weeklyForecast");
   let forecastHTML = "";
   forecastData.forEach(function (currentForecast, index) {
+    let sunrise = newDate(currentForecast.sunrise * 1000);
+    let sunset = newDate(currentForecast.sunset * 1000);
+    sunrise = runTime(sunrise);
+    sunset = runTime(sunset);
     let forecastEmojis = currentForecast.weather[0].icon;
     if (forecastEmojis === "01d") {
       forecastEmojis = "☀️";
@@ -66,7 +77,7 @@ function showForecast(response) {
     if (index > 0 && index < 6) {
       forecastHTML += `
         <div class="forecastDay">${findWeekdays(currentForecast.dt)}</div>
-        <div class="dailyForecast">
+        <div class="dailyForecast" class="sun" data-hover="Sunrise at ${sunrise} / Sunset at ${sunset}">
 ${degreeMax} / ${degreeMin} <span class="forecastEmoji"> ${forecastEmojis}
         </span></div>
         `;

@@ -129,3 +129,17 @@ li {
 .forecastEmoji {
   font-size: 25px;
 }
+
+.sun:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  background-color: white;
+  color: black;
+  transition: ease-in-out;
+}
+
+.sun:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
