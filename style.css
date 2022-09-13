@@ -110,15 +110,7 @@ li {
   border-radius: 5px;
 }
 
-.dailyForecast {
-  font-size: 13px;
-  margin-bottom: 12px;
-}
 
-.forecastDay {
-  font-size: 15px;
-  color: black;
-}
 
 .imgPosition {
   position: relative;
@@ -130,16 +122,26 @@ li {
   font-size: 25px;
 }
 
-.sun:before {
+.dailyForecast {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.forecastDay {
+  font-size: 15px;
+  color: black;
+}
+
+.forecastDay:before {
   content: attr(data-hover);
   visibility: hidden;
   opacity: 0;
   background-color: white;
   color: black;
-  transition: ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
-.sun:hover:before {
+.forecastDay:hover:before {
   visibility: visible;
   opacity: 1;
 }
