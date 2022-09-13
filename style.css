@@ -132,6 +132,7 @@ li {
   font-size: 15px;
   color: black;
 }
+
 /*
 .forecastDay:before {
   content: attr(data-hover);
@@ -143,11 +144,11 @@ li {
   position: relative;
   z-index: 1;
 }
-*/
+
 .forecastDay:hover {
   content: attr(data-hover);
- /*
+
   opacity: 1;
   visibility: visible;
-  */
 }
+*/
