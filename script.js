@@ -89,7 +89,7 @@ ${degreeMax} / ${degreeMin} <span class="forecastEmoji"> ${forecastEmojis}
 }
 
 function findForecast(coordinates) {
-  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(showForecast);
 }
@@ -153,7 +153,7 @@ cities.addEventListener("click", newLocation);
 function newCityForecast(position) {
   let lat = position.data.coord.lat;
   let lon = position.data.coord.lon;
-  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(showForecast);
 }
